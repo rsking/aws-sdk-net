@@ -166,7 +166,7 @@ namespace AWSSDK.UnitTests.Custom.Marshalling
 
             var stream = AWSSDK_DotNet.UnitTests.Utils.CreateStreamFromString(body);
             var context = new JsonUnmarshallerContext(stream, true, webResponse);
-            var reader = new StreamingUtf8JsonReader(stream);
+            var reader = new StreamingUtf8JsonReader(context.Stream);
             return new JsonErrorResponseUnmarshaller().Unmarshall(context, ref reader);
         }
 
